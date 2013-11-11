@@ -1,7 +1,7 @@
 package com.fuzzoland.BungeePortals.Listeners;
 
-import java.io.ByteArrayOutputStream;
-import java.io.DataOutputStream;
+//import java.io.ByteArrayOutputStream;
+//import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -11,6 +11,10 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
+
+import pl.DyrtCraft.DyrtCraftXP.api.Bungee;
+
+import pl.dyrtcraft.bungeeportals.ServerNamer;
 
 import com.fuzzoland.BungeePortals.BungeePortals;
 
@@ -36,7 +40,7 @@ public class EventListener implements Listener{
 			if(!this.statusData.get(playerName)){
 				this.statusData.put(playerName, true);
 				String destination = plugin.portalData.get(data);
-				if(player.hasPermission("BungeePortals.portal." + destination) || player.hasPermission("BungeePortals.portal.*")){
+				/*if(player.hasPermission("BungeePortals.portal." + destination) || player.hasPermission("BungeePortals.portal.*")){
 					ByteArrayOutputStream baos = new ByteArrayOutputStream();
 					DataOutputStream dos = new DataOutputStream(baos);
 					dos.writeUTF("Connect");
@@ -46,7 +50,9 @@ public class EventListener implements Listener{
 					dos.close();
 				}else{
 					player.sendMessage(plugin.configFile.getString("NoPortalPermissionMessage").replace("{destination}", destination).replaceAll("(&([a-f0-9l-or]))", "\u00A7$2"));
-				}
+				}*/
+				
+				Bungee.connect(event.getPlayer(), ServerNamer.getName(destination), destination); // @author TheMolkaPL (themolkapl@gmail.com)
 			}
 		}else{
 			if(this.statusData.get(playerName)){

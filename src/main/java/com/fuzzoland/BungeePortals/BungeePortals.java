@@ -35,6 +35,11 @@ public class BungeePortals extends JavaPlugin{
 			getPluginLoader().disablePlugin(this);
 			throw new NullPointerException("[BungeePortals] WorldEdit not found, disabling...");
 		}
+		// DyrtCraft edit start
+		if(getServer().getPluginManager().getPlugin("DyrtCraftXP") == null) {
+			getPluginLoader().disablePlugin(this);
+			getLogger().log(Level.WARNING, "[BungeePortals] Plugin DyrtCraftXP not found in folder plugins, disabling...");
+		}
 		this.worldEdit = (WorldEditPlugin) getServer().getPluginManager().getPlugin("WorldEdit");
 		startMetrics();
 		getCommand("BPortals").setExecutor(new CommandBPortals(this));

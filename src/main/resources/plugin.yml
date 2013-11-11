@@ -1,10 +1,10 @@
 name: BungeePortals
-version: 1.1
-description: Create portals of any shape or size with WorldEdit, for BungeeCord.
-author: YoFuzzy3
+version: unknown
+description: Create portals of any shape or size with WorldEdit, for BungeeCord. Edited for DyrtCraft Network by TheMolkaPL (themolkapl@gmail.com)
+authors: [YoFuzzy3, TheMolkaPL]
 main: com.fuzzoland.BungeePortals.BungeePortals
 dev-url: http://www.spigotmc.org/resources/bungeeportals.19/
-softdepend: [WorldEdit]
+softdepend: [WorldEdit, DyrtCraftXP]
 
 commands:
     BPortals:
